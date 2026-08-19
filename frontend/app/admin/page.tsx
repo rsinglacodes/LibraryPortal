@@ -18,6 +18,7 @@ import {
 export default function AdminPage() {
   const router = useRouter();
   const [currentUser, setCurrentUser] = useState<User | null>(null);
+  // Force cache invalidation for Vercel
   const [activeTab, setActiveTab] = useState<'borrows' | 'demand' | 'books' | 'damaged' | 'users'>('borrows');
 
   // Data states
