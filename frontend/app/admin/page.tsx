@@ -18,7 +18,7 @@ import {
 export default function AdminPage() {
   const router = useRouter();
   const [currentUser, setCurrentUser] = useState<User | null>(null);
-  const [activeTab, setActiveTab] = useState<'borrows' | 'demand' | 'books' | 'damaged'>('borrows');
+  const [activeTab, setActiveTab] = useState<'borrows' | 'demand' | 'books' | 'damaged' | 'users'>('borrows');
 
   // Data states
   const [overview, setOverview] = useState<AdminOverview | null>(null);
@@ -453,6 +453,7 @@ export default function AdminPage() {
           { id: 'borrows', label: '📋 Borrow & Late Fine Tracking', count: borrows.length },
           { id: 'demand', label: '📊 Restocking & Demand Analytics' },
           { id: 'books', label: '📚 Book Management', count: booksTotal },
+          { id: 'users', label: '👥 Registered Users', count: userFines.length },
           { id: 'damaged', label: '🔍 Damaged Returns', count: damagedReturns.length },
         ].map((tab) => {
           const isActive = activeTab === tab.id;
