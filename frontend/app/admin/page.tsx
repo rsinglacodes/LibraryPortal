@@ -304,8 +304,8 @@ export default function AdminPage() {
     } catch (err: any) {
       const msg = err?.response?.data?.detail
         ? (Array.isArray(err.response.data.detail)
-            ? err.response.data.detail.map((d: any) => d.msg || JSON.stringify(d)).join(' | ')
-            : String(err.response.data.detail))
+          ? err.response.data.detail.map((d: any) => d.msg || JSON.stringify(d)).join(' | ')
+          : String(err.response.data.detail))
         : err?.message || 'Failed to save book. Please check your inputs and try again.';
       setBookModalError(msg);
     }
@@ -399,11 +399,10 @@ export default function AdminPage() {
       {/* Banner notification */}
       {bannerMsg && (
         <div
-          className={`p-3.5 rounded-xl text-xs flex items-center justify-between shadow-md ${
-            bannerMsg.type === 'success'
+          className={`p-3.5 rounded-xl text-xs flex items-center justify-between shadow-md ${bannerMsg.type === 'success'
               ? 'bg-emerald-50 border border-emerald-200 text-emerald-800'
               : 'bg-red-50 border border-red-200 text-red-700'
-          }`}
+            }`}
         >
           <span>{bannerMsg.text}</span>
           <button onClick={() => setBannerMsg(null)} className="text-xs opacity-70 hover:opacity-100">
@@ -462,11 +461,10 @@ export default function AdminPage() {
             <button
               key={tab.id}
               onClick={() => setActiveTab(tab.id as any)}
-              className={`px-4 py-2.5 rounded-xl text-xs font-semibold transition-all whitespace-nowrap flex items-center gap-1.5 ${
-                isActive
+              className={`px-4 py-2.5 rounded-xl text-xs font-semibold transition-all whitespace-nowrap flex items-center gap-1.5 ${isActive
                   ? 'bg-navy text-cream shadow-md'
                   : 'text-ink-muted hover:text-navy hover:bg-parchment/60'
-              }`}
+                }`}
             >
               <span>{tab.label}</span>
               {tab.count !== undefined && (
@@ -489,11 +487,10 @@ export default function AdminPage() {
                 <button
                   key={statusKey}
                   onClick={() => setBorrowFilter(statusKey)}
-                  className={`px-3 py-1.5 rounded-lg text-xs font-medium capitalize transition-colors ${
-                    borrowFilter === statusKey
+                  className={`px-3 py-1.5 rounded-lg text-xs font-medium capitalize transition-colors ${borrowFilter === statusKey
                       ? 'bg-navy text-cream font-semibold'
                       : 'text-ink-muted hover:text-navy hover:bg-parchment'
-                  }`}
+                    }`}
                 >
                   {statusKey === 'fines' ? 'Has Late Fine' : statusKey}
                 </button>
@@ -663,13 +660,12 @@ export default function AdminPage() {
                 return (
                   <div
                     key={b.isbn10}
-                    className={`bg-cream-light border rounded-2xl p-4 flex gap-4 items-start shadow-sm transition-all ${
-                      isUrgent
+                    className={`bg-cream-light border rounded-2xl p-4 flex gap-4 items-start shadow-sm transition-all ${isUrgent
                         ? 'border-red-200'
                         : isLow
-                        ? 'border-gold/30'
-                        : 'border-parchment'
-                    }`}
+                          ? 'border-gold/30'
+                          : 'border-parchment'
+                      }`}
                   >
                     <div className="w-16 h-22 bg-parchment rounded-lg overflow-hidden shrink-0 border border-parchment flex items-center justify-center">
                       {b.thumbnail ? (
@@ -851,39 +847,39 @@ export default function AdminPage() {
                           )}
                         </div>
                       </td>
-                    <td className="p-3.5 text-right space-x-2">
-                      <button
-                        onClick={() =>
-                          setBookModal({
-                            isOpen: true,
-                            isEdit: true,
-                            isbn10: b.isbn10,
-                            isbn13: b.isbn13 || '',
-                            title: b.title,
-                            authors: b.authors || '',
-                            categories: b.categories || 'Fiction & Literature',
-                            publisher: b.publisher || '',
-                            publishedYear: b.published_year ? String(b.published_year) : '',
-                            numPages: b.num_pages ? String(b.num_pages) : '',
-                            totalCopies: b.total_copies || 5,
-                            description: b.description || '',
-                            thumbnail: b.thumbnail || '',
-                          })
-                        }
-                        className="portal-btn-primary px-2.5 py-1 text-[11px] font-semibold rounded-lg"
-                      >
-                        Edit
-                      </button>
-                      <button
-                        onClick={() => handleDeleteBook(b.isbn10, b.title)}
-                        className="px-2.5 py-1 text-[11px] font-semibold bg-red-50 hover:bg-red-100 text-red-700 rounded-lg transition-colors border border-red-200"
-                      >
-                        Delete
-                      </button>
-                    </td>
-                  </tr>
-                );
-              })}
+                      <td className="p-3.5 text-right space-x-2">
+                        <button
+                          onClick={() =>
+                            setBookModal({
+                              isOpen: true,
+                              isEdit: true,
+                              isbn10: b.isbn10,
+                              isbn13: b.isbn13 || '',
+                              title: b.title,
+                              authors: b.authors || '',
+                              categories: b.categories || 'Fiction & Literature',
+                              publisher: b.publisher || '',
+                              publishedYear: b.published_year ? String(b.published_year) : '',
+                              numPages: b.num_pages ? String(b.num_pages) : '',
+                              totalCopies: b.total_copies || 5,
+                              description: b.description || '',
+                              thumbnail: b.thumbnail || '',
+                            })
+                          }
+                          className="portal-btn-primary px-2.5 py-1 text-[11px] font-semibold rounded-lg"
+                        >
+                          Edit
+                        </button>
+                        <button
+                          onClick={() => handleDeleteBook(b.isbn10, b.title)}
+                          className="px-2.5 py-1 text-[11px] font-semibold bg-red-50 hover:bg-red-100 text-red-700 rounded-lg transition-colors border border-red-200"
+                        >
+                          Delete
+                        </button>
+                      </td>
+                    </tr>
+                  );
+                })}
 
               </tbody>
             </table>
@@ -942,9 +938,8 @@ export default function AdminPage() {
                       {/* User Summary Row */}
                       <div
                         onClick={() => setExpandedUserRoll(isExpanded ? null : u.roll_number)}
-                        className={`p-4 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 cursor-pointer portal-table-row-hover ${
-                          isExpanded ? 'bg-gold/5 border-l-4 border-gold' : ''
-                        }`}
+                        className={`p-4 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 cursor-pointer portal-table-row-hover ${isExpanded ? 'bg-gold/5 border-l-4 border-gold' : ''
+                          }`}
                       >
                         <div className="flex items-center gap-3 min-w-0">
                           <div className="w-9 h-9 rounded-xl bg-navy/10 border border-navy/20 flex items-center justify-center text-navy font-bold text-sm shrink-0">
