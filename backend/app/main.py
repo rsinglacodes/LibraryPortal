@@ -29,8 +29,9 @@ def on_startup():
 app.add_middleware(
     CORSMiddleware,
     allow_origins=[
+        "https://library-portal-ten.vercel.app",
         "http://localhost:3000",
-        "http://127.0.0.1:3000",
+        "*"  # Allows all origins (recommended for testing)
     ],
     allow_credentials=True,
     allow_methods=["*"],
