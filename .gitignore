@@ -1,0 +1,52 @@
+# =========================
+# Python
+# =========================
+__pycache__/
+*.py[cod]
+*.pyo
+
+# Virtual environments
+.venv/
+venv/
+env/
+backend/.venv/
+backend/.venv-local/
+backend/.venv-win/
+
+# Environment variables / secrets
+.env
+.env.*
+.DS_Store
+
+# Virtual environments
+.venv/
+venv/
+env/
+.venv-local/
+.venv-win/
+backend/.venv/
+backend/.venv-local/
+backend/.venv-win/
+backend/.venv-new/
+
+# Environment variables
+.env
+.env.*
+!.env.example
+
+# Python cache
+__pycache__/
+*.py[cod]
+
+# Node / Next.js
+node_modules/
+.next/
+out/
+*.tsbuildinfo
+
+# IDE
+.vscode/
+.idea/
+
+# Logs
+*.log
